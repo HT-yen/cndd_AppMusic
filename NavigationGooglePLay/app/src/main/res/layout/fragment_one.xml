@@ -6,5 +6,12 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:text="Fragment one"/>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/list_nghe_sy"
+        android:layout_width="match_parent"
+        android:layout_height="358dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/song_item_shape"
+        android:layout_weight="0.53" />
 
 </LinearLayout>
