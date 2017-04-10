@@ -1,0 +1,114 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="rimoka.com.navigationgoogleplay.ItemTwoFragment">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/list_nhac"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/song_item_shape" />
+
+    <TextView
+        android:id="@+id/nowPlaySong"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#580505"
+        android:textSize="20dp"
+        android:layout_above="@+id/nowPlayArtist"
+        android:layout_alignParentStart="true" />
+    <TextView
+        android:id="@+id/nowPlayArtist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="casual"
+        android:layout_above="@+id/seekBar3"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="11dp" />
+
+    <SeekBar
+        android:id="@+id/seekBar3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:max="100"
+        android:progress="0"
+        android:indeterminate="false"
+        android:layout_above="@+id/previous"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true" />
+    <ImageButton
+        android:id="@+id/previous"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:srcCompat="@drawable/img_btn_previous"
+        android:layout_alignParentBottom="true"
+        android:layout_toStartOf="@+id/play"
+        android:layout_marginEnd="13dp" />
+    <ImageButton
+        android:id="@+id/play"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:visibility="invisible"
+        app:srcCompat="@drawable/img_btn_pause"
+        android:layout_alignTop="@+id/pause"
+        android:layout_centerHorizontal="true" />
+
+    <ImageButton
+        android:id="@+id/next"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:srcCompat="@drawable/img_btn_next"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/play"
+        android:layout_marginStart="14dp" />
+
+    <ImageButton
+        android:id="@+id/forward"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:srcCompat="@drawable/img_btn_forward"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/next" />
+
+    <ImageButton
+        android:id="@+id/pause"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:srcCompat="@drawable/img_btn_play"
+        android:visibility="visible"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/previous" />
+
+    <ImageButton
+        android:id="@+id/backward"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignTop="@+id/previous"
+        android:layout_toStartOf="@+id/previous"
+        app:srcCompat="@drawable/img_btn_backward" />
+
+    <TextView
+        android:id="@+id/timeNow"
+        android:layout_width="50dp"
+        android:layout_height="10dp"
+        android:text="0:00:00"
+        android:layout_marginStart="20dp"
+        android:layout_alignBottom="@+id/timeTotal"
+        android:layout_alignStart="@+id/backward"
+        android:layout_alignTop="@+id/timeTotal" />
+
+    <TextView
+        android:id="@+id/timeTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0:00:00"
+        android:layout_above="@+id/seekBar3"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="14dp" />
+
+
+</RelativeLayout>

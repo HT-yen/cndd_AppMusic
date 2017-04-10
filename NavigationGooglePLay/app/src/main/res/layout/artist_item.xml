@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    android:background="@drawable/select_song"
+    android:orientation="vertical">
+    <ImageButton
+        android:id="@+id/image_artist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ngh" />
+    <TextView
+        android:id="@+id/ten_nghe_sy"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:textColor="#1c1e8b"
+        android:text="Tên" />
+
+    <TextView
+        android:id="@+id/count_bai_hat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Số bài" />
+</LinearLayout>

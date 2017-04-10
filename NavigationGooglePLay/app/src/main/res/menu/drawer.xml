@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item android:id="@+id/navigation_song"
+            android:title="Bai hat"
+            android:icon="@drawable/ic_action_search"
+            android:checked="true" />
+        <item android:id="@+id/navigation_artist"
+            android:icon="@drawable/artisticon"
+            android:title="Nghe sy"/>
+        <item android:id="@+id/navigation_album"
+            android:icon="@drawable/album"
+            android:title="Album"/>
+
+    </group>
+
+    <item android:title="General">
+        <menu>
+            <item android:id="@+id/Cancel"
+                android:icon="@drawable/cancel"
+                android:title="Cancel"/>
+            <item android:id="@+id/Star"
+                android:icon="@drawable/star"
+                android:title="Remark"/>
+        </menu>
+
+    </item>
+
+</menu>
