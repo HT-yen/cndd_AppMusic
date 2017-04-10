@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:background="@drawable/select_song"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/baihat"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:textColor="#990000"
+        android:text="Bai hat" />
+
+    <TextView
+        android:id="@+id/nghesy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="nghe si" />
+</LinearLayout>
