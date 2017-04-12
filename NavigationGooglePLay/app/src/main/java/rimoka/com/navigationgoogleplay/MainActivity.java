@@ -1,4 +1,4 @@
-package rimoka.com.navigationgoogleplay;
+﻿package rimoka.com.navigationgoogleplay;
 //lưu ý: phần note là để làm theo cách 2(dùng recycle view thay cho navigation)
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -75,8 +75,9 @@ public class MainActivity extends AppCompatActivity {
                         return true;
                     case R.id.Cancel:
                         SELECTED_POSITION=3;
-
-                        finish();
+                        Intent myIntent =new Intent(MainActivity.this,MyService.class);
+                        stopService(myIntent);
+                        System.exit(0);
                         drawerLayout.closeDrawers();
                         return true;
                     case R.id.Star:
