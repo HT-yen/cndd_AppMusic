@@ -19,7 +19,6 @@ import java.util.ArrayList;
 public class ArtistFragment extends Fragment implements ListenSong {
     private MainActivity mainActivity;
     private RecyclerView recyclerView;
-    private static MyListSong myList;
     ArrayList<MyListSong.MySong> listSong;
     static ArrayList<Artist> listArtist=new ArrayList<>();
     ArtistAdapter adapter;
@@ -39,21 +38,25 @@ public class ArtistFragment extends Fragment implements ListenSong {
         // Inflate the layout for this fragment
         View v= inflater.inflate(R.layout.fragment_one, container, false);
         recyclerView=(RecyclerView) v.findViewById(R.id.list_nghe_sy);
-        myList = new MyListSong(this.mainActivity);
-        listSong = myList.getList();
-        boolean check=false;
-        listArtist.add(new Artist(listSong.get(0).getArtist(),1," "));
-        if(listSong!=null) {
-            for (int i =1; i < listSong.size(); i++) {
-                for (int j = 0; j < listArtist.size(); j++)
-                    if (listSong.get(i).getArtist() == listArtist.get(j).getArtist()) {
-                        check = true;
-                        listArtist.get(j).setCount(listArtist.get(j).getCount() + 1);
-                        break;
+         listSong = MyListSong.listSong;
+        ArrayList<MyListSong.MySong> listSongTam=new ArrayList<MyListSong.MySong>();
+        for (int i = 0; i < listSong.size(); i++)
+            listSongTam.add(listSong.get(i));
+        listArtist=new ArrayList<>();
+        //new l?i d? tránh add ti?p vào listArtist(vì static)
+        if(listSongTam!=null) {
+            for (int i =0; i < listSongTam.size(); i++) {
+                listArtist.add(new Artist(listSongTam.get(i).getArtist(),1," "));
+                for (int j = i+1; j < listSongTam.size(); j++)
+                    if (listSongTam.get(j).getArtist().equals(listArtist.get(i).getArtist())) {
+                        listArtist.get(i).setCount(listArtist.get(i).getCount() + 1);
+                        listSongTam.remove(j);
+                        --j;
+                        // n?u remove thì --j
                     }
-                if (check == false) listArtist.add(new Artist(listSong.get(i).getArtist(), 1, ""));
             }
         }
+        //m?i l?n vào fragment Artist là add l?i element vao listArtist d? c?p nh?t khi có xóa bài hát
         adapter = new ArtistAdapter(listArtist, this.mainActivity, this);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this.mainActivity,3);
         recyclerView.setHasFixedSize(true);
