@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:orientation="vertical"
     android:layout_height="match_parent">
+
     <TextView
         android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:text="Fragment one"/>
+        android:layout_height="50dp"
+        android:text="Artist" />
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/list_nghe_sy"
         android:layout_width="match_parent"
         android:layout_height="358dp"
-        android:layout_marginTop="50dp"
-        android:background="@drawable/song_item_shape"
-        android:layout_weight="0.53" />
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_weight="0.53"
+        android:background="@drawable/song_item_shape" />
 
 </LinearLayout>

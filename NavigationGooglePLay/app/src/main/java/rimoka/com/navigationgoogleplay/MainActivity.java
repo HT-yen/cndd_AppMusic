@@ -1,5 +1,6 @@
-﻿package rimoka.com.navigationgoogleplay;
+package rimoka.com.navigationgoogleplay;
 //lưu ý: phần note là để làm theo cách 2(dùng recycle view thay cho navigation)
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -15,6 +16,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     private Toolbar toobar;
@@ -39,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setHomeButtonEnabled(true);
         }
-//        startFragment(new ItemTwoFragment());
         drawerLayout=(DrawerLayout) findViewById(R.id.nav_drawer);
         mContentFrame=(FrameLayout) findViewById(R.id.nav_contentframe);
 
@@ -60,6 +61,8 @@ public class MainActivity extends AppCompatActivity {
                 switch(id){
                     case R.id.navigation_song:
                         SELECTED_POSITION=0;
+                        MyListSong.setViewfollow(null);
+                        MyListSong.setStringcompare(null);
                         startFragment(new ItemTwoFragment());
                         drawerLayout.closeDrawers();
                         return true;
@@ -82,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
                         return true;
                     case R.id.Star:
                         SELECTED_POSITION=4;
-                        startFragment(new AlbumFragment());
+                        Toast.makeText(MainActivity.this,"You have to create before remark! Update Later!",Toast.LENGTH_SHORT).show();
                         drawerLayout.closeDrawers();
                         return true;
                     default:return true;
@@ -137,15 +140,10 @@ public class MainActivity extends AppCompatActivity {
 
 
         FragmentManager manager=getSupportFragmentManager();
-        boolean fragmentpop=manager.popBackStackImmediate(backstate,0);
-        if(!fragmentpop&&manager.findFragmentByTag(fragmenttag)==null){ //fragment not in back stack
             FragmentTransaction transaction=manager.beginTransaction();
             transaction.replace(R.id.nav_contentframe,fragment,fragmenttag);
             transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN); //Fragment is being added onto the stack
-            //ft.addToBackStack(backStateName);   //khi trở về sẽ quay lại fragment đứng trước nó trong stack
             transaction.commit();
-
-        }
     }
 
 }

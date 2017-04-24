@@ -20,7 +20,8 @@ import java.util.IllegalFormatException;
 public class MyService extends Service implements MediaPlayer.OnPreparedListener,MediaPlayer.OnCompletionListener{
     private static MediaPlayer song;
     private static int vitri=0;
-    private int sizeList=ItemTwoFragment.getSizeList();
+    MyListSong mlist=new MyListSong();
+    private int sizeList=0;
 
     //intent service
     public static final String ACTION_PAUSE ="rimoka.com.navigationgoogleplay.PAUSE";
@@ -122,6 +123,7 @@ public class MyService extends Service implements MediaPlayer.OnPreparedListener
 //            ItemTwoFragment i2=new ItemTwoFragment();
             MyListSong listSong = new MyListSong(getApplicationContext());
             MyListSong.MySong mySong = listSong.getList().get(vitri);
+            sizeList=ItemTwoFragment.getList().size();
             song.setAudioStreamType(AudioManager.STREAM_MUSIC);
             song.setDataSource(getApplicationContext(), Uri.parse(mySong.getData()));
             song.prepare();

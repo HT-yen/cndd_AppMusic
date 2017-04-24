@@ -67,7 +67,10 @@ import java.util.ArrayList;
             recyclerView = (RecyclerView) v.findViewById(R.id.list_nhac);
             myList = new MyListSong(this.mainActivity);
             listSong = myList.getList();
-            adapter = new SongAdapter(listSong, this.mainActivity, this,this);
+            if(MyListSong.getViewfollow()==null) adapter = new SongAdapter(listSong, this.mainActivity, this,this);
+            else if(MyListSong.getViewfollow().equals("ARTIST"))
+                  adapter = new SongAdapter(myList.getListBaseArtist(), this.mainActivity, this,this);
+            else adapter = new SongAdapter(myList.getListBaseAlbum(), this.mainActivity, this,this);
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this.mainActivity, LinearLayoutManager.VERTICAL, false);
             recyclerView.setLayoutManager(linearLayoutManager);
             recyclerView.setAdapter(adapter);
@@ -101,10 +104,6 @@ import java.util.ArrayList;
                 public void onStopTrackingTouch(SeekBar seekBar) {
                     if(song!=null) {
                         song.seekTo(util.progressToTimer(seekBar.getProgress(), (int) song.getDuration()));
-//                    if (seekBar.getProgress() == seekBar.getMax()) {
-//                        play.setVisibility(ImageButton.INVISIBLE);
-//                        pause.setVisibility(ImageButton.VISIBLE);
-//                    }
                     }
                     else seekBar.setProgress(0);
                 }
@@ -204,11 +203,14 @@ import java.util.ArrayList;
         }
 
         public void tim(String text) {
-            adapter = new SongAdapter(listSong,mainActivity,this,this);
+            if(MyListSong.getViewfollow()==null)
+                adapter = new SongAdapter(listSong,mainActivity,this,this);
+            else if(MyListSong.getViewfollow().equals("ARTIST"))
+                adapter = new SongAdapter(myList.getListBaseArtist(),mainActivity,this,this);
+            else adapter = new SongAdapter(myList.getListBaseAlbum(), this.mainActivity, this,this);
             adapter.getFilter().filter(text.trim());
             recyclerView.setAdapter(adapter);
         }
-
         @Override
         public void onStart() {
             super.onStart();
@@ -221,7 +223,7 @@ import java.util.ArrayList;
     @Override
     public void onDestroy() {
         super.onDestroy();
-        mainActivity.unregisterReceiver(myBroadcast);
+//        mainActivity.unregisterReceiver(myBroadcast);
     }
 
         @Override
@@ -320,7 +322,6 @@ import java.util.ArrayList;
                 String s=intent.getAction();
                 if(s.equals(MyService.ACTION_MOVE_SONG)){
                     vitri=intent.getIntExtra("vitri",-1);
-                    Toast.makeText(getContext(),Integer.toString(vitri),Toast.LENGTH_SHORT).show();
                     Log.i("vitri:  ",String.valueOf(vitri));
                 }
             }

@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:orientation="vertical"
     android:layout_height="match_parent">
+
     <TextView
         android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:text="Fragment two"/>
+        android:layout_height="50dp"
+        android:text="Album" />
 
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/list_album"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/song_item_shape" />
 </LinearLayout>
