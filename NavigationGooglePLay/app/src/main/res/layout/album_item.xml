@@ -9,7 +9,7 @@
         android:id="@+id/image_album"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ngh" />
+        app:srcCompat="@drawable/album" />
     <TextView
         android:id="@+id/ten_album"
         android:layout_width="match_parent"
