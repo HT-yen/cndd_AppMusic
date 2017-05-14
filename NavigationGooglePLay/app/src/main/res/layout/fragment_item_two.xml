@@ -8,28 +8,31 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/list_nhac"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="300dp"
         android:layout_alignParentStart="true"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/song_item_shape" />
 
     <TextView
         android:id="@+id/nowPlaySong"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#580505"
-        android:textSize="20dp"
         android:layout_above="@+id/nowPlayArtist"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textAlignment="center"
+        android:textColor="#580505"
+        android:textSize="20dp" />
+
     <TextView
         android:id="@+id/nowPlayArtist"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="casual"
         android:layout_above="@+id/seekBar3"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="11dp" />
+        android:layout_marginBottom="11dp"
+        android:fontFamily="casual"
+        android:textAlignment="center" />
 
     <SeekBar
         android:id="@+id/seekBar3"

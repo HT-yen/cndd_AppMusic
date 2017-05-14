@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="80dp"
+    android:layout_height="wrap_content"
     android:background="@drawable/select_song"
     android:orientation="vertical">
 
@@ -9,12 +9,25 @@
         android:id="@+id/baihat"
         android:layout_width="match_parent"
         android:layout_height="20dp"
-        android:textColor="#990000"
-        android:text="Bai hat" />
+        android:paddingLeft="10dp"
+        android:text="Bai hat"
+        android:textColor="#990000" />
 
     <TextView
         android:id="@+id/nghesy"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingEnd="0dp"
+        android:paddingLeft="10dp"
         android:text="nghe si" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:background="@android:color/holo_orange_light"
+        android:text="TextView" />
 </LinearLayout>
